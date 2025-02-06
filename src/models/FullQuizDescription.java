@@ -6,7 +6,6 @@ import java.util.Map;
 public class FullQuizDescription {
     private Quiz quiz;
     private List<Question> questions;
-    // Mapping from question ID to list of answers
     private Map<Integer, List<Answer>> questionAnswers;
 
     public FullQuizDescription(Quiz quiz, List<Question> questions, Map<Integer, List<Answer>> questionAnswers) {
