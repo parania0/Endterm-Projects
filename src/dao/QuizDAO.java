@@ -19,7 +19,6 @@ public class QuizDAO {
 
             stmt.setString(1, quiz.getTitle());
             stmt.setString(2, quiz.getDescription());
-            // If a category is assigned (nonzero), set it; otherwise, set NULL.
             if (quiz.getCategoryId() != 0) {
                 stmt.setInt(3, quiz.getCategoryId());
             } else {
@@ -124,7 +123,6 @@ public class QuizDAO {
         return false;
     }
 
-    // Demonstrates JOIN-like aggregation: retrieves a full quiz description (quiz info, questions, and answers)
     public static FullQuizDescription getFullQuizDescription(int quizId) {
         Quiz quiz = getQuizById(quizId);
         if (quiz == null) return null;
@@ -132,7 +130,6 @@ public class QuizDAO {
         List<Question> questions = QuestionDAO.getQuestionsByQuiz(quizId);
         Map<Integer, List<Answer>> questionAnswers = new HashMap<>();
 
-        // Lambda expression to process each question and retrieve its answers
         questions.forEach(question -> {
             List<Answer> answers = AnswerDAO.getAnswersByQuestion(question.getQuestionId());
             questionAnswers.put(question.getQuestionId(), answers);
