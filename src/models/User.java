@@ -4,7 +4,7 @@ public class User {
     private int userId;
     private String username;
     private String email;
-    private String role; // e.g., user, admin, manager, editor
+    private String role;
 
     public User(int userId, String username, String email, String role) {
         this.userId = userId;
@@ -16,7 +16,7 @@ public class User {
     public User(int userId, String username, String email) {
         this.username = username;
         this.email = email;
-        this.role = "user"; // default role
+        this.role = "user";
     }
 
     public User(String username, String email) {
