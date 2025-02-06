@@ -4,7 +4,7 @@ public class Quiz {
     private int quizId;
     private String title;
     private String description;
-    private int categoryId; // new field for category association
+    private int categoryId;
 
     public Quiz(int quizId, String title, String description) {
         this.quizId = quizId;
