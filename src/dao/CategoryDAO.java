@@ -28,26 +28,4 @@ public class CategoryDAO {
         }
         return -1;
     }
-
-    public static List<Category> getAllCategories() {
-        List<Category> categories = new ArrayList<>();
-        String sql = "SELECT category_id, name, description FROM categories";
-
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
-
-            while (rs.next()) {
-                categories.add(new Category(
-                        rs.getInt("category_id"),
-                        rs.getString("name"),
-                        rs.getString("description")
-                ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return categories;
-    }
 }
-
