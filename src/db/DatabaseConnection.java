@@ -5,17 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String URL = "jdbc:postgresql://localhost:5432/quiz";
+
+    private static final String URL = "jdbc:postgresql://localhost:5432/simpledb";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "dee02";
-    private static Connection connection;
+    private static final String PASSWORD = "0000";
 
     public static Connection getConnection() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-        }
-        return connection;
+        return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
-
-
