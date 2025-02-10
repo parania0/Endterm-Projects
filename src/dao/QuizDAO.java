@@ -5,6 +5,7 @@ import models.Quiz;
 import models.Question;
 import models.Answer;
 import models.FullQuizDescription;
+
 import java.sql.*;
 import java.util.*;
 
@@ -61,5 +62,3 @@ public class QuizDAO {
         return null;
     }
 }
-
-
