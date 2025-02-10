@@ -2,10 +2,10 @@ package dao;
 
 import db.DatabaseConnection;
 import models.Answer;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 public class AnswerDAO {
     public static int addAnswer(Answer answer) {
         String sql = "INSERT INTO answers (question_id, answer_text, is_correct) VALUES (?, ?, ?) RETURNING answer_id";
@@ -29,6 +29,7 @@ public class AnswerDAO {
         }
         return -1;
     }
+
     public static List<Answer> getAnswersByQuestion(int questionId) {
         List<Answer> answers = new ArrayList<>();
         String sql = "SELECT answer_id, question_id, answer_text, is_correct FROM answers WHERE question_id = ?";
@@ -52,36 +53,5 @@ public class AnswerDAO {
         }
         return answers;
     }
-    public static boolean updateAnswer(Answer answer) {
-        String sql = "UPDATE answers SET answer_text = ?, is_correct = ? WHERE answer_id = ?";
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-            stmt.setString(1, answer.getAnswerText());
-            stmt.setBoolean(2, answer.isCorrect());
-            stmt.setInt(3, answer.getAnswerId());
-
-            int rows = stmt.executeUpdate();
-            return rows > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-    public static boolean deleteAnswer(int answerId) {
-        String sql = "DELETE FROM answers WHERE answer_id = ?";
-        try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement(sql)) {
-
-            stmt.setInt(1, answerId);
-            int rows = stmt.executeUpdate();
-            return rows > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-
-    }
 }
