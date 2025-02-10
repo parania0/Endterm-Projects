@@ -36,5 +36,3 @@ public class Question {
         this.questionText = questionText;
     }
 }
-
-
