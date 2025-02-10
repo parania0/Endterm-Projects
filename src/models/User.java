@@ -29,4 +29,3 @@ public class User {
     public boolean isAdmin() { return role.equalsIgnoreCase("admin"); }
     public boolean isManager() { return role.equalsIgnoreCase("manager"); }
 }
-
