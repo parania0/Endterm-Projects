@@ -1,5 +1,3 @@
-package main;
-
 import dao.*;
 import db.DatabaseSetup;
 import models.*;
@@ -148,6 +146,7 @@ public class Main {
         }
         System.out.println("Question and its answers added successfully.");
     }
+
     private static void viewFullQuizDescription() {
         System.out.print("Enter quiz ID to view full description: ");
         int quizId = getUserInputAsInt();
@@ -172,7 +171,6 @@ public class Main {
             }
         });
     }
-
 
     private static void takeQuiz() {
         if (currentUser == null) {
@@ -213,6 +211,7 @@ public class Main {
         }
         System.out.println("Quiz finished. Your score: " + score + " out of " + questions.size());
     }
+
     private static void addCategory() {
         if (currentUser == null || !currentUser.isAdmin()) {
             System.out.println("Only admins can add categories.");
@@ -229,7 +228,6 @@ public class Main {
 
         System.out.println(categoryId != -1 ? "Category added successfully!" : "Failed to add category.");
     }
-
 
     private static int getUserInputAsInt() {
         try {
