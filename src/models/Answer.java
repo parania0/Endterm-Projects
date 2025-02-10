@@ -18,6 +18,7 @@ public class Answer {
         this.answerText = answerText;
         this.isCorrect = isCorrect;
     }
+
     public int getAnswerId() {
         return answerId;
     }
@@ -46,4 +47,3 @@ public class Answer {
         isCorrect = correct;
     }
 }
-
