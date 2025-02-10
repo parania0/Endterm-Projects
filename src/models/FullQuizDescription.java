@@ -20,12 +20,14 @@ public class FullQuizDescription {
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
     }
+
     public List<Question> getQuestions() {
         return questions;
     }
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
+
     public Map<Integer, List<Answer>> getQuestionAnswers() {
         return questionAnswers;
     }
